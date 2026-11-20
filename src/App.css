@@ -1,117 +1,372 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f3f5f9;
-  color: #222;
-}
+/* Bare-bones layout so the flow is usable. Make it pretty! */
 
 .app {
   min-height: 100vh;
 }
 
+/* ---------- Header (Drew's original) ---------- */
 .header {
-  background: #263b63;
+  background: var(--navy);
   color: white;
   padding: 20px 40px;
 }
-
-.header h1 {
-  margin: 5;
+.brand {
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
 }
-
-
 .header p {
-  margin-bottom: 0;
+  margin: 4px 0 0;
   color: #d5dcec;
 }
 
-h2 {
-  margin-top: 0;
-  color: #263b63;
+.main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px 120px; /* bottom room so CineBuddy bubble doesn't cover buttons */
 }
 
-.chat-container {
-  max-width: 850px;
-  margin: 50px auto;
-  padding: 30px;
-  background: white;
+/* ---------- Step layout ---------- */
+.step {
+  background: var(--surface);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
 }
-
-.avatar {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.avatar-circle {
-  width: 100px;
-  height: 100px;
-  margin: auto;
-  border-radius: 50%;
-  background: #e8edfa;
+.progress {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 45px;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  font-size: 0.8rem;
+  flex-wrap: wrap;
 }
-
-.chat-window {
-  min-height: 250px;
-  padding: 20px;
-  background: #f7f8fb;
-  border-radius: 12px;
+.progress li {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--muted);
 }
-
-.message {
-  padding: 15px;
-  border-radius: 12px;
-  max-width: 75%;
-  line-height: 1.5;
+.progress li.done {
+  background: var(--navy-light);
+  color: var(--navy);
 }
-
-.assistant-message {
-  background: #e3eaf8;
+.progress li.current {
+  background: var(--navy);
+  color: white;
 }
-
-.input-area {
+.step-nav {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.missing {
+  color: var(--muted);
 }
 
-.input-area input {
-  flex: 1;
-  padding: 14px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-}
-
-.input-area button {
+/* ---------- Buttons / chips ---------- */
+.btn {
+  display: inline-block;
   padding: 12px 20px;
   border: none;
   border-radius: 8px;
-  background: #263b63;
+  background: var(--navy);
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover:not(:disabled) {
+  background: var(--navy-hover);
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.btn.secondary {
+  background: var(--bg);
+  color: var(--navy);
+}
+.btn.small {
+  padding: 4px 12px;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.chip {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: white;
+  cursor: pointer;
+}
+.chip.selected {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: white;
+}
+
+/* ---------- Movies ---------- */
+.movie-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+.card {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+}
+.card.selected {
+  border-color: var(--navy);
+  background: var(--navy-light);
+}
+.card img {
+  border-radius: 6px;
+  align-self: flex-start;
+}
+.card p {
+  margin: 6px 0 0;
+}
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Tickets ---------- */
+.ticket-row {
+  display: grid;
+  grid-template-columns: 100px 80px auto 30px auto;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.cap {
+  text-transform: capitalize;
+}
+.count {
+  text-align: center;
+}
+.total {
+  font-weight: 700;
+}
+
+/* ---------- Seats ---------- */
+.screen {
+  text-align: center;
+  background: var(--navy-light);
+  color: var(--navy);
+  border-radius: 6px;
+  padding: 4px;
+  margin-bottom: 16px;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+}
+.seat-grid {
+  display: grid;
+  gap: 6px;
+  justify-content: center;
+}
+.seat-row {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.row-label {
+  width: 20px;
+  color: var(--muted);
+}
+.seat {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 6px 6px 3px 3px;
+  background: white;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+/* aisle gaps between left / middle / right sections */
+.seat-row .seat:nth-of-type(4),
+.seat-row .seat:nth-of-type(10) {
+  margin-left: 14px;
+}
+.seat.taken {
+  background: var(--taken);
+  color: transparent;
+  cursor: not-allowed;
+}
+.seat.selected {
+  background: var(--popcorn);
+  border-color: var(--popcorn);
+}
+
+/* ---------- Forms / summary ---------- */
+.field {
+  display: block;
+  margin-bottom: 16px;
+  border: none;
+  padding: 0;
+}
+.field input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.radio {
+  display: block;
+  margin: 6px 0;
+}
+.summary {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 6px 12px;
+  margin-bottom: 24px;
+}
+.summary dt {
+  color: var(--muted);
+}
+.summary dd {
+  margin: 0;
+}
+
+/* ---------- CineBuddy ---------- */
+.cinebuddy {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+.cinebuddy-bubble {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: var(--popcorn);
+  font-size: 32px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+.chat-panel {
+  width: 360px;
+  max-width: calc(100vw - 48px);
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--navy);
+  color: white;
+}
+.chat-header p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #d5dcec;
+}
+.chat-header .icon-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+.avatar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.chat-window {
+  height: 300px;
+  overflow-y: auto;
+  padding: 16px;
+  background: #f7f8fb;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.message {
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 80%;
+  line-height: 1.4;
+}
+.assistant-message {
+  background: var(--navy-light);
+  align-self: flex-start;
+}
+.user-message {
+  background: var(--navy);
+  color: white;
+  align-self: flex-end;
+}
+.input-area {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+}
+.input-area input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+.input-area button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--navy);
   color: white;
   cursor: pointer;
 }
-
-.input-area button:hover {
-  background: #38558b;
+.input-area button:hover:not(:disabled) {
+  background: var(--navy-hover);
+}
+.input-area button:disabled {
+  opacity: 0.4;
 }
 
 @media (max-width: 600px) {
-  .chat-container {
-    margin: 20px;
-    padding: 20px;
-  }
-
   .header {
     padding: 20px;
+  }
+  .step {
+    padding: 20px;
+  }
+  .seat {
+    width: 22px;
+    height: 22px;
   }
 }

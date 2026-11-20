@@ -1,0 +1,65 @@
+[
+  {
+    "id": "starfall",
+    "title": "Starfall Protocol",
+    "genre": "Sci-Fi",
+    "rating": "PG-13",
+    "runtime": 132,
+    "blurb": "A stranded engineer has 48 hours to stop a dying space station from falling to Earth.",
+    "poster": "https://placehold.co/300x450/263b63/ffffff?text=Starfall+Protocol"
+  },
+  {
+    "id": "pancake",
+    "title": "The Great Pancake Heist",
+    "genre": "Comedy",
+    "rating": "PG",
+    "runtime": 98,
+    "blurb": "A diner cook and her grandma plan the most delicious robbery in history.",
+    "poster": "https://placehold.co/300x450/e8a33d/ffffff?text=Pancake+Heist"
+  },
+  {
+    "id": "hollow",
+    "title": "Hollow Creek",
+    "genre": "Horror",
+    "rating": "18A",
+    "runtime": 109,
+    "blurb": "Five friends rent a cabin. The cabin has other plans.",
+    "poster": "https://placehold.co/300x450/2b2b2b/ffffff?text=Hollow+Creek"
+  },
+  {
+    "id": "pip",
+    "title": "Pip and the Paper Moon",
+    "genre": "Animation",
+    "rating": "G",
+    "runtime": 91,
+    "blurb": "A tiny origami fox folds its way across the night sky to find home.",
+    "poster": "https://placehold.co/300x450/6aa8d8/ffffff?text=Pip"
+  },
+  {
+    "id": "redline",
+    "title": "Redline: Overdrive",
+    "genre": "Action",
+    "rating": "14A",
+    "runtime": 124,
+    "blurb": "An ex-getaway driver is pulled back in for one last race through Toronto.",
+    "poster": "https://placehold.co/300x450/b22e2e/ffffff?text=Redline"
+  },
+  {
+    "id": "letters",
+    "title": "Letters to Lisbon",
+    "genre": "Romance",
+    "rating": "PG",
+    "runtime": 115,
+    "blurb": "Two strangers swap letters through a used bookstore without ever meeting.",
+    "poster": "https://placehold.co/300x450/c77d9e/ffffff?text=Letters+to+Lisbon"
+  },
+  {
+    "id": "verdict",
+    "title": "The Last Verdict",
+    "genre": "Drama",
+    "rating": "14A",
+    "runtime": 128,
+    "blurb": "A juror starts to suspect the case was decided before the trial began.",
+    "poster": "https://placehold.co/300x450/4a5568/ffffff?text=The+Last+Verdict"
+  }
+]
